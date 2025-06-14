@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terceiro Projeto Responsivo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 20px;
+    }
+
+    #logo {
+      font-size: 2rem;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .menu ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .menu ul li a {
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    .menu ul li a:hover {
+      color: aqua;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content h2 {
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .hero-content a {
+      background-color: #333;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .hero-content a:hover {
+      background-color: gray;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .services {
+      text-align: center;
+      padding: 40px 10px;
+      background-color: white;
+    }
+
+    .titulo-services {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .container-servicos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .service-item {
+      background-color: lightgrey;
+      padding: 20px 15px;
+      border-radius: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 280px;
+      transition: transform 0.3s;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-item h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .service-item p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .portfolio {
+      text-align: center;
+      padding: 40px 10px;
+      background-color: lightgrey;
+    }
+
+    .titulo-portfolio {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .container-portifolio {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio img {
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      transition: transform 0.5s;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .portfolio img:hover {
+      transform: scale(1.05);
+    }
+
+    .depoimentos {
+      background-color: white;
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    .depoimentos h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .depoimentos-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .depoimento-item {
+      background-color: black;
+      color: white;
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 30px;
+      transition: transform 0.6s;
+    }
+
+    .depoimento-item:hover {
+      transform: scale(1.03);
+    }
+
+    .depoimentos-container p {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    #contato {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 10px;
+      }
+
+      .menu ul {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 0;
+      }
+
+      .menu ul li a {
+        font-size: 0.9rem;
+        padding: 8px;
+        display: block;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 10px;
+        margin-top: 40px;
+      }
+
+      .hero-content {
+        margin-top: 0;
+        margin-bottom: 15px;
+        max-width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero-content h2 {
+        font-size: 0.9rem;
+      }
+
+      .hero-content a {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .services {
+        padding: 30px 10px;
+      }
+
+      .titulo-services {
+        font-size: 1.5rem;
+      }
+
+      .container-servicos {
+        gap: 15px;
+      }
+
+      .service-item {
+        max-width: 90%;
+        padding: 15px;
+      }
+
+      .service-item h2 {
+        font-size: 1.2rem;
+      }
+
+      .service-item p {
+        font-size: 0.85rem;
+      }
+
+      .portfolio {
+        padding: 30px 10px;
+      }
+
+      .titulo-portfolio {
+        font-size: 1.5rem;
+      }
+
+      .container-portifolio {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0;
+      }
+
+      .portfolio img {
+        max-width: 90%;
+      }
+
+      .depoimentos {
+        padding: 30px 10px;
+      }
+
+      .depoimentos h2 {
+        font-size: 1.5rem;
+      }
+
+      .depoimentos-container {
+        gap: 15px;
+      }
+
+      .depoimento-item {
+        max-width: 90%;
+        padding: 20px;
+      }
+
+      .depoimentos-container p {
+        font-size: 0.85rem;
+      }
+
+      #contato {
+        padding: 30px 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #logo {
+        font-size: 1.5rem;
+        padding: 8px;
+      }
+
+      .menu ul li a {
+        font-size: 0.8rem;
+      }
+
+      .hero-content h1 {
+        font-size: 1.3rem;
+      }
+
+      .hero-content h2 {
+        font-size: 0.8rem;
+      }
+
+      .hero-content a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+
+      .titulo-services,
+      .titulo-portfolio,
+      .depoimentos h2 {
+        font-size: 1.3rem;
+      }
+
+      .service-item h2 {
+        font-size: 1.1rem;
+      }
+
+      .service-item p,
+      .depoimentos-container p {
+        font-size: 0.8rem;
+      }
+
+      .portfolio img {
+        max-width: 85%;
+      }
+
+      .depoimento-item {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="logo">PixelWave</div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+
+  </header>
+
+  <section id= "inicio" class="hero">
+    <div class="hero-content">
+      <h1 class="titulo-hero">Transformamos ideias em experiências digitais</h1>
+      <h2 class="subtitulo-hero">Web design, branding e estratégia digital para o seu negócio</h2>
+      <a href="#contato" class="cta">Fale Conosco</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://picsum.photos/400/300" alt="Imagem ilustrativa">
+    </div>
+  </section>
+
+  <section id="servicos" class="services">
+      <h1 class="titulo-services">O que fazemos</h1>
+      <div class="container-servicos">
+        <div class="service-item">
+          <h2>Serviço 1</h2>
+          <p>xxxxxxxxxxxxx</p>
+        </div>
+        <div class="service-item">
+          <h2>Serviço 2</h2>
+          <p>xxxxxxxxxxxxx</p>
+        </div>
+        <div class="service-item">
+          <h2>Serviço 3</h2>
+          <p>xxxxxxxxxxxxx</p>
+        </div>
+      </div>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2 class="titulo-portfolio">Nossos Projetos</h2>
+    <div class="container-portifolio">
+      <img src="https://picsum.photos/400/300" alt="Imagem ilustrativa">
+      <img src="https://picsum.photos/400/300" alt="Imagem ilustrativa">
+      <img src="https://picsum.photos/400/300" alt="Imagem ilustrativa">
+    </div>
+  </section>
+
+  <section id="depoimentos" class="depoimentos">
+    <h2>O que dizem sobre nós</h2>
+    <div class="depoimentos-container">
+      <blockquote class="depoimento-item">
+        <p>“A PixelWave transformou nosso site e quadruplicou nosso tráfego!”</p>
+        <footer>Cliente 1</footer>
+      </blockquote>
+      <blockquote class="depoimento-item">
+        <p>“Profissionalismo e criatividade do início ao fim do projeto.”</p>
+        <footer>Cliente 2</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <p>PixelWave © 2025 Todos os direitos reservados</p>
+    <p class="social-icons">
+      <a href="#">insta aqui</a>
+    </p>
+  </footer>
+</body>
+</html>
